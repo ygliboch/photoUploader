@@ -19,7 +19,6 @@
 		73D13F83238D7C0C0027934F /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D13F82238D7C0C0027934F /* PhotoCollectionCell.swift */; };
 		73D13F86238DA6F40027934F /* OnlineRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D13F85238DA6F40027934F /* OnlineRepository.swift */; };
 		73D13F88238DA72A0027934F /* OfflineRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D13F87238DA72A0027934F /* OfflineRepository.swift */; };
-		73D13F8B238DAFD00027934F /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D13F8A238DAFD00027934F /* Common.swift */; };
 		73D13F91238EA9A90027934F /* AlertControllerWithPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D13F90238EA9A90027934F /* AlertControllerWithPhoto.swift */; };
 		73E0AEA4239008CE00CCE6D4 /* LinkBox+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0AEA2239008CE00CCE6D4 /* LinkBox+CoreDataClass.swift */; };
 		73E0AEA5239008CE00CCE6D4 /* LinkBox+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0AEA3239008CE00CCE6D4 /* LinkBox+CoreDataProperties.swift */; };
@@ -42,7 +41,6 @@
 		73D13F82238D7C0C0027934F /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
 		73D13F85238DA6F40027934F /* OnlineRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineRepository.swift; sourceTree = "<group>"; };
 		73D13F87238DA72A0027934F /* OfflineRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineRepository.swift; sourceTree = "<group>"; };
-		73D13F8A238DAFD00027934F /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		73D13F90238EA9A90027934F /* AlertControllerWithPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerWithPhoto.swift; sourceTree = "<group>"; };
 		73E0AEA2239008CE00CCE6D4 /* LinkBox+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkBox+CoreDataClass.swift"; sourceTree = "<group>"; };
 		73E0AEA3239008CE00CCE6D4 /* LinkBox+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkBox+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				73D13F90238EA9A90027934F /* AlertControllerWithPhoto.swift */,
-				73D13F8A238DAFD00027934F /* Common.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -328,7 +325,6 @@
 				73D13F86238DA6F40027934F /* OnlineRepository.swift in Sources */,
 				73D13F81238D7BA40027934F /* PhotosControllerViewModel.swift in Sources */,
 				73D13F6F238D79EA0027934F /* photoUploader.xcdatamodeld in Sources */,
-				73D13F8B238DAFD00027934F /* Common.swift in Sources */,
 				73D13F7F238D7ACA0027934F /* PhotosViewController.swift in Sources */,
 				73E0AEAD23900D3600CCE6D4 /* LinkTableViewCell.swift in Sources */,
 				73D13F88238DA72A0027934F /* OfflineRepository.swift in Sources */,

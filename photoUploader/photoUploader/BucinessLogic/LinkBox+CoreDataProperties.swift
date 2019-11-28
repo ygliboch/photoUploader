@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension LinkBox {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<LinkBox> {
