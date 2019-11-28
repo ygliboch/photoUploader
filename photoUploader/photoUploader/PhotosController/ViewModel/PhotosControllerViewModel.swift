@@ -15,6 +15,36 @@ final class PhotosControllerViewModel {
     var imageManager: PHCachingImageManager!
     var successUploadPhoto: ((String, IndexPath)->Void)?
     var failedUploadPhoto: ((IndexPath)->Void)?
+    var succesAuthorizationPhotoLibrary: (()->Void)?
+    var failedAuthorizationPhotoLibrary: (()->Void)?
+    
+    
+    func photoLibraryAuthorization() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized:
+            succesAuthorizationPhotoLibrary?()
+        case .restricted, .denied:
+            failedAuthorizationPhotoLibrary?()
+        case .notDetermined:
+            authorizationRequest()
+        default:
+            break
+        }
+    }
+    
+    private func authorizationRequest() {
+        PHPhotoLibrary.requestAuthorization { status in
+            switch status {
+            case .authorized:
+                self.succesAuthorizationPhotoLibrary?()
+            case .restricted, .denied:
+                self.failedAuthorizationPhotoLibrary?()
+            default:
+                break
+            }
+        }
+    }
     
     func fetchImagesFromGallary() -> PHFetchResult<PHAsset> {
         let allPhotosOptions = PHFetchOptions()
@@ -57,7 +87,6 @@ final class PhotosControllerViewModel {
     }
     
     func saveNewLink(link: String) {
-//        guard link != "" else { return }
         let newLinkBox = LinkBox()
         newLinkBox.link = link
         OfflineRepository.instance.saveContext()

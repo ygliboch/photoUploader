@@ -14,6 +14,7 @@ final class OnlineRepository {
     private let dispatchQueue = DispatchQueue(label: "myQueue", qos: .background)
     private let semaphore = DispatchSemaphore(value: 0)
 
+    //MARK: - use semaphore and background queue to upload photos in the queue, one by one.
     
     func uploadPhoto(data: Data, name: String, completionHandler: @escaping (([String:Any]?, Error?)->Void)) {
         dispatchQueue.async {

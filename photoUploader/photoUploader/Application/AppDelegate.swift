@@ -8,13 +8,18 @@
 
 import UIKit
 import CoreData
+import Photos
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let status = PHPhotoLibrary.authorizationStatus()
+        if (status == PHAuthorizationStatus.notDetermined) {
+            PHPhotoLibrary.requestAuthorization({ (newStatus) in
+            })
+        }
+        
         return true
     }
 

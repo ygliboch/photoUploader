@@ -65,5 +65,7 @@ class PhotoCollectionCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
+        loadingSpinner.removeFromSuperview()
+        backLoadingView.removeFromSuperview()
     }
 }

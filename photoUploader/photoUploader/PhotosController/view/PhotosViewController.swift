@@ -20,6 +20,34 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewModel()
+        viewModel.photoLibraryAuthorization()
+    }
+    
+    private func setupViewModel() {
+        viewModel.succesAuthorizationPhotoLibrary = {
+            DispatchQueue.main.async {
+                self.configureCollectionView()
+            }
+        }
+        
+        viewModel.failedAuthorizationPhotoLibrary = {
+            DispatchQueue.main.async {
+                self.showAlertAuthorization()
+            }
+        }
+        
+        viewModel.successUploadPhoto = { (link, indexPath) in
+            self.viewModel.saveNewLink(link: link)
+            self.configureUploadingCell(indexPath: indexPath)
+        }
+        
+        viewModel.failedUploadPhoto = { (indexPath) in
+            self.configureUploadingCell(indexPath: indexPath)
+            self.showAlertUploadPhoto(indexPath: indexPath)
+        }
+    }
+    
+    private func configureCollectionView() {
         allUserPhotos = viewModel.fetchImagesFromGallary()
         layoutCollectionView()
         collectionView.allowsSelection = true
@@ -27,15 +55,11 @@ class PhotosViewController: UIViewController {
         collectionView.dataSource = self
     }
     
-    private func setupViewModel() {
-        viewModel.successUploadPhoto = { (link, indexPath) in
-            self.viewModel.saveNewLink(link: link)
-            self.configureUploadingCell(indexPath: indexPath)
-        }
-        viewModel.failedUploadPhoto = { (indexPath) in
-            self.configureUploadingCell(indexPath: indexPath)
-            self.showAlert(indexPath: indexPath)
-        }
+    private func showAlertAuthorization() {
+        let alert = UIAlertController(title: "We cannot work correctly without access to the photo gallery", message: "You can change application permissions in settings", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     private func configureUploadingCell(indexPath: IndexPath) {
@@ -48,7 +72,7 @@ class PhotosViewController: UIViewController {
         (collectionView.cellForItem(at: indexPath) as? PhotoCollectionCell)?.removeLoadingView()
     }
     
-    private func showAlert(indexPath: IndexPath) {
+    private func showAlertUploadPhoto(indexPath: IndexPath) {
         let alert = AlertControllerWithPhoto(title: "", message: "", preferredStyle: .alert)
         alert.titleLabel.text = "Failed to upload photo"
         alert.subtitleLabel.text = "Please try again"
@@ -56,8 +80,8 @@ class PhotosViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-        print("rotate")
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        layoutCollectionView()
     }
 }
 
@@ -69,7 +93,9 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         
-        let length = view.frame.width / 3
+        let denominator: CGFloat = (UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight ? 5 : 3)
+        
+        let length = view.frame.width / denominator
         layout.itemSize = CGSize(width: length, height: length)
         collectionView.collectionViewLayout = layout
     }

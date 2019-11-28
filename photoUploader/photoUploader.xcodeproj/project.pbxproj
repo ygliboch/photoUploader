@@ -95,9 +95,9 @@
 		73D13F63238D79EA0027934F /* photoUploader */ = {
 			isa = PBXGroup;
 			children = (
-				73E0AEA823900CBA00CCE6D4 /* LinksController */,
 				73D13F8C238DB0D60027934F /* Resource */,
 				73D13F7B238D7A830027934F /* PhotosController */,
+				73E0AEA823900CBA00CCE6D4 /* LinksController */,
 				73D13F8D238DB0F30027934F /* Application */,
 				73D13F89238DAFC10027934F /* Library */,
 				73D13F84238DA6B90027934F /* BucinessLogic */,
@@ -120,7 +120,6 @@
 			children = (
 				73D13F7E238D7ACA0027934F /* PhotosViewController.swift */,
 				73D13F82238D7C0C0027934F /* PhotoCollectionCell.swift */,
-				73D13F90238EA9A90027934F /* AlertControllerWithPhoto.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -148,6 +147,7 @@
 		73D13F89238DAFC10027934F /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				73D13F90238EA9A90027934F /* AlertControllerWithPhoto.swift */,
 				73D13F8A238DAFD00027934F /* Common.swift */,
 			);
 			path = Library;

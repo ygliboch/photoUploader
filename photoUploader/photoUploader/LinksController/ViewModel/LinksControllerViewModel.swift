@@ -13,7 +13,7 @@ final class LinksControllerViewModel {
     func fetchAllLinks() -> [LinkBox] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "LinkBox")
         do {
-            let results = try OfflineRepository.instance.managedObjectContext.fetch(fetchRequest)
+            let results = try OfflineRepository.instance.persistentContainer.viewContext.fetch(fetchRequest)
             return results as? [LinkBox] ?? []
         } catch {
             return []

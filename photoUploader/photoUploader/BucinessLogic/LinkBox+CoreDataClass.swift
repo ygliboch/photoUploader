@@ -14,8 +14,8 @@ import CoreData
 public class LinkBox: NSManagedObject {
 
     convenience init() {
-        let entity = NSEntityDescription.entity(forEntityName: "LinkBox", in: OfflineRepository.instance.managedObjectContext)
+        let entity = NSEntityDescription.entity(forEntityName: "LinkBox", in: OfflineRepository.instance.persistentContainer.viewContext)
     
-        self.init(entity: entity!, insertInto: OfflineRepository.instance.managedObjectContext)
+        self.init(entity: entity!, insertInto: OfflineRepository.instance.persistentContainer.viewContext)
      }
 }
