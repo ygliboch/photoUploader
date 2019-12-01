@@ -72,6 +72,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7382FDDE23941CE20016D312 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				73E0AEA3239008CE00CCE6D4 /* LinkBox+CoreDataProperties.swift */,
+				73D13F6D238D79EA0027934F /* photoUploader.xcdatamodeld */,
+				73E0AEA2239008CE00CCE6D4 /* LinkBox+CoreDataClass.swift */,
+			);
+			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		7382FDE023941D2E0016D312 /* AlertWithPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				73D13F90238EA9A90027934F /* AlertControllerWithPhoto.swift */,
+			);
+			path = AlertWithPhoto;
+			sourceTree = "<group>";
+		};
 		73D13F58238D79EA0027934F = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +116,7 @@
 				73E0AEA823900CBA00CCE6D4 /* LinksController */,
 				73D13F8D238DB0F30027934F /* Application */,
 				73D13F89238DAFC10027934F /* Library */,
-				73D13F84238DA6B90027934F /* BucinessLogic */,
+				73D13F84238DA6B90027934F /* BusinessLogic */,
 				73D13F75238D79EC0027934F /* Info.plist */,
 			);
 			path = photoUploader;
@@ -130,22 +148,20 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		73D13F84238DA6B90027934F /* BucinessLogic */ = {
+		73D13F84238DA6B90027934F /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
-				73E0AEA2239008CE00CCE6D4 /* LinkBox+CoreDataClass.swift */,
-				73E0AEA3239008CE00CCE6D4 /* LinkBox+CoreDataProperties.swift */,
+				7382FDDE23941CE20016D312 /* CoreDataModel */,
 				73D13F85238DA6F40027934F /* OnlineRepository.swift */,
-				73D13F6D238D79EA0027934F /* photoUploader.xcdatamodeld */,
 				73D13F87238DA72A0027934F /* OfflineRepository.swift */,
 			);
-			path = BucinessLogic;
+			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
 		73D13F89238DAFC10027934F /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				73D13F90238EA9A90027934F /* AlertControllerWithPhoto.swift */,
+				7382FDE023941D2E0016D312 /* AlertWithPhoto */,
 			);
 			path = Library;
 			sourceTree = "<group>";
